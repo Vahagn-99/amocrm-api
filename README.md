@@ -70,14 +70,17 @@
 - **Обмен кода на токен авторизации**
     - `POST /api/amocrm/auth/callback`
     - Используйте этот эндпоинт для обмена кода авторизации на токен. Необходимо передать `code` в теле запроса.
-    - пример зопроса ```
-    curl /api/amocrm/auth/callback POST body {
-        "referrer": "mydomain.amocrm.ru",
-        "code": "code from widget keys settings (works only 20 min)",
-        "platform": 1,
-        "client_id": "id from widget keys settings",
-        "from_widget": 1
-    }
+    - Пример запроса:
+    ```bash
+    curl -X POST /api/amocrm/auth/callback \
+         -H "Content-Type: application/json" \
+         -d '{
+               "referrer": "mydomain.amocrm.ru",
+               "code": "code from widget keys settings (works only 20 min)",
+               "platform": 1,
+               "client_id": "id from widget keys settings",
+               "from_widget": 1
+             }'
     ```
 
 - **Получение списка сделок**
@@ -100,5 +103,4 @@
     - `DELETE /api/amocrm/leads/{id}`
     - Удалите сделку по её `id`.
 
-Для подробной информации о конечных точках API и их параметрах, смотрите [документацию](https://www.amocrm.ru/developers/content/crm_platform/api-reference).
-# amocrm-api
+Для подробной информации о конечных точках API и их параметрах, смотрите [документацию AmoCRM](https://www.amocrm.ru/developers/content/crm_platform/api-reference).
